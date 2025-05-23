@@ -1,0 +1,81 @@
+/* Digital Display Font */
+@font-face {
+  font-family: 'Digital-7';
+  src: url('/fonts/digital-7.mono.ttf') format('truetype');
+}
+
+/* Digital Text Styling */
+.digital-text {
+  font-family: 'Digital-7', monospace;
+  letter-spacing: 0.1em;
+}
+
+/* Digital Character Animation */
+.digital-chars {
+  position: relative;
+}
+
+.digital-chars::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 255, 157, 0.2) 50%,
+    transparent 100%
+  );
+  animation: scanline 2s linear infinite;
+  pointer-events: none;
+}
+
+/* Scan Line Animation */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* LED Glow Effect */
+.digital-text {
+  position: relative;
+  text-shadow: 
+    0 0 5px rgba(0, 255, 157, 0.8),
+    0 0 10px rgba(0, 255, 157, 0.4),
+    0 0 15px rgba(0, 255, 157, 0.2);
+}
+
+/* Digital Screen Background */
+.led-text-container {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 20, 24, 0.95) 0%,
+    rgba(0, 20, 24, 0.85) 100%
+  );
+}
+
+/* Flicker Animation */
+.digital-text {
+  animation: textFlicker 0.1s infinite;
+}
+
+@keyframes textFlicker {
+  0% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+} 

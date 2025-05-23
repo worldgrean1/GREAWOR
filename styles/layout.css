@@ -1,0 +1,252 @@
+/* Layout-specific styles */
+body {
+  background-color: #000000; /* Changed from slate-900 to black */
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.eco-glass {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth transitions */
+.layout-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Energy system specific styles */
+.energy-flow-container {
+  position: relative;
+  overflow: hidden;
+  width: 1209.43px;
+  height: 455px;
+  opacity: 1;
+  transform: none;
+}
+
+/* Preserve animation styles */
+@keyframes energyFlow {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes energyPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
+
+/* Main layout styles */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #000000; /* Changed from slate-900 to black */
+}
+
+/* Container for the main content */
+.main-content {
+  width: 100%;
+  max-width: 1098.56px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.content-wrapper > section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-wrapper > section > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Container styles */
+.demo-container {
+  width: 100%;
+  max-width: 1209.43px;
+  height: 550px;
+  min-height: 550px;
+  margin: 0 auto;
+  opacity: 1;
+  transform: translateZ(0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* Add GPU acceleration */
+  backface-visibility: hidden;
+  perspective: 1000;
+  will-change: transform;
+  /* Remove unnecessary transitions */
+  transition: opacity 0.3s ease-out;
+  padding: 1rem;
+}
+
+/* Media queries */
+@media (max-width: 1280px) {
+  .content-wrapper {
+    width: 100%;
+    max-width: 1098.56px;
+  }
+  
+  .main-content {
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    padding: 0 0.5rem;
+  }
+}
+
+/* Footer styles */
+.footer-container {
+  width: 100%;
+  min-height: fit-content;
+  background-color: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 50;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .content-wrapper {
+    padding: 0;
+  }
+}
+
+/* Interactive demo section */
+@media (max-width: 1024px) {
+  .interactive-demo {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  .interactive-demo {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 640px) {
+  .interactive-demo {
+    transform: scale(0.7);
+  }
+}
+
+/* Feature buttons */
+@media (max-width: 768px) {
+  .feature-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+}
+
+/* Hero section */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* Ensure proper spacing */
+.section-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Ensure proper content width */
+.max-width-wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Background elements */
+.background-element {
+  position: absolute;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .background-element {
+    opacity: 0.5;
+  }
+} 

@@ -1,0 +1,666 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../styles/digital-display.css';
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #000000 !important;
+  color-scheme: dark;
+}
+
+/* Custom override for mb-6 class */
+.mb-6 {
+  margin-bottom: 0.1rem !important;
+}
+
+/* Add floating animation for particles */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-10px);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateY(-60px) translateX(5px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) translateX(0);
+    opacity: 0;
+  }
+}
+
+/* Enhanced floating animation with rotation */
+@keyframes floatEnhanced {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) rotate(5deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-10px) rotate(-5deg);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateY(-60px) translateX(5px) rotate(3deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+/* Eco-friendly leaf float animation */
+@keyframes leafFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.1;
+  }
+  25% {
+    transform: translateY(-15px) translateX(5px) rotate(5deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-25px) translateX(-5px) rotate(-5deg);
+    opacity: 0.15;
+  }
+  75% {
+    transform: translateY(-35px) translateX(3px) rotate(3deg);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(-50px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+/* Sun rays animation */
+@keyframes sunRays {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2) rotate(5deg);
+  }
+}
+
+/* Wind flow animation */
+@keyframes windFlow {
+  0% {
+    transform: translateX(-100%) scaleY(0.5);
+    opacity: 0.05;
+  }
+  50% {
+    transform: translateX(0%) scaleY(1);
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateX(100%) scaleY(0.5);
+    opacity: 0.05;
+  }
+}
+
+/* Water drop animation */
+@keyframes waterDrop {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.1;
+  }
+  70% {
+    transform: translateY(50px) scale(0.8);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(70px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Glow animation */
+@keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(74, 222, 128, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(74, 222, 128, 0.8));
+  }
+}
+
+/* Text glow animation */
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(74, 222, 128, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(74, 222, 128, 0.8), 0 0 30px rgba(74, 222, 128, 0.4);
+  }
+}
+
+/* Energy pulse animation */
+@keyframes energyPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+/* Data flow animation */
+@keyframes dataFlow {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.2;
+  }
+}
+
+.react-flow__edge-path {
+  transition: stroke 0.3s, filter 0.3s, opacity 0.3s;
+}
+
+.react-flow__handle {
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.react-flow__handle-connecting {
+  background: #4ade80 !important;
+  box-shadow: 0 0 10px 2px rgba(74, 222, 128, 0.8);
+}
+
+.react-flow__handle-valid {
+  background: #4ade80 !important;
+  box-shadow: 0 0 10px 2px rgba(74, 222, 128, 0.8);
+}
+
+.react-flow__background {
+  opacity: 0.2;
+}
+
+/* Enhanced edge path styling */
+.react-flow__edge-path.active {
+  stroke: #4ade80;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 5px rgba(74, 222, 128, 0.5));
+  animation: dataFlow 3s infinite linear;
+}
+
+/* Enhanced node styling */
+.react-flow__node.active {
+  filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.7));
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Ensure ReactFlow container fills available space */
+html,
+body,
+#__next,
+.react-flow,
+.react-flow__container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Ensure full viewport coverage */
+html,
+body,
+#root,
+.app {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Force ReactFlow to fill container */
+.react-flow {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.react-flow__renderer {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.react-flow__container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Remove any potential margins/padding */
+.react-flow__viewport {
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform-origin: 0 0 !important;
+}
+
+.react-flow__renderer {
+  width: 100%;
+  height: 100%;
+}
+
+/* Fix for ReactFlow container */
+.react-flow__pane {
+  width: 100%;
+  height: 100%;
+}
+
+/* Eco-friendly glass effect */
+.eco-glass {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Sustainable pattern */
+.sustainable-pattern {
+  background-image: radial-gradient(circle at 10px 10px, rgba(74, 222, 128, 0.1) 2px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Leaf pattern */
+.leaf-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='rgba(74, 222, 128, 0.1)' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3v12'%3E%3C/path%3E%3Cpath d='M18 9a3 3 0 0 0-3-3H7.82a3 3 0 0 0-1.82.6l-2.36 1.88a3 3 0 0 0 0 4.24l2.36 1.88a3 3 0 0 0 1.82.6H15a3 3 0 0 0 3-3'%3E%3C/path%3E%3Cpath d='M6 21V11'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: space;
+}
+
+/* Energy flow particle */
+.energy-particle {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(74, 222, 128, 0.7);
+  filter: blur(2px);
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Add to the end of the file */
+html,
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important; /* Completely prevent scrollbars */
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Override any scrollbar settings for all elements */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Force-hide any potential scrollbar */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Target the main element to ensure it has proper overflow behavior */
+main {
+  overflow: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+}
+
+main::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+#__next {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure sections expand properly */
+section {
+  width: 100%;
+}
+
+/* Improve responsive behavior for the interactive demo */
+@media (max-height: 700px) {
+  .demo-container {
+    transform: scale(0.9);
+    transform-origin: center center;
+  }
+}
+
+@media (max-height: 600px) {
+  .demo-container {
+    transform: scale(0.8);
+    transform-origin: center center;
+  }
+}
+
+/* Custom Scrollbar Styles */
+.sister-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(61, 213, 109, 0.5) rgba(31, 41, 55, 0.5);
+}
+
+.sister-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.sister-scrollbar::-webkit-scrollbar-track {
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 6px;
+}
+
+.sister-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(61, 213, 109, 0.5);
+  border-radius: 6px;
+  border: 3px solid rgba(31, 41, 55, 0.5);
+}
+
+.sister-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(61, 213, 109, 0.7);
+}
+
+/* Find the ::before and ::after pseudo-elements that might be causing the white flash */
+/* Look for any elements with white borders or backgrounds that flash during transitions */
+
+/* If there's a .logo-spin class with ::before or ::after that has white color, modify it */
+/* Also check for any .animate-pulse elements with light backgrounds */
+
+/* Add this CSS to override any white borders or backgrounds */
+.logo-spin::before,
+.logo-spin::after {
+  border-color: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Fix for the span with animate-pulse that might be causing the flash */
+span.inline-block.w-2.h-2.rounded-full.bg-sky-300.animate-pulse {
+  background-color: rgba(14, 165, 233, 0.7) !important; /* More transparent sky blue */
+}
+
+/* Fix for any particles that might have white color */
+.particle {
+  background-color: rgba(74, 222, 128, 0.4) !important; /* Transparent green */
+  border: none !important;
+  box-shadow: 0 0 5px rgba(74, 222, 128, 0.3) !important;
+}
+
+/* Ensure header has no white borders */
+header {
+  border: none !important;
+}
+
+/* Add smooth transitions for all elements to prevent white flashes */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ensure all borders are transparent during transitions */
+*::before,
+*::after {
+  border-color: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Override any green borders to be transparent */
+.border-green-400\/30 {
+  border-color: rgba(74, 222, 128, 0) !important;
+}
+
+/* Make background gradients transparent */
+.bg-gradient-to-t.from-green-400\/50.to-transparent {
+  background: transparent !important;
+  background-image: linear-gradient(to top, rgba(74, 222, 128, 0.1), transparent) !important;
+}
+
+/* Add animation keyframes for float effects */
+@keyframes floatIn {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes floatOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-50px);
+    opacity: 0.8;
+  }
+}
+
+.float-in {
+  animation: floatIn 0.8s forwards;
+}
+
+.float-out {
+  animation: floatOut 0.8s forwards;
+}
+
+/* Ensure particles are transparent */
+.particle {
+  background-color: rgba(74, 222, 128, 0.2) !important;
+  border: none !important;
+}
+
+/* Section container styling for single-page layout */
+.section-container {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  scroll-margin-top: 5rem;
+}
+
+.section-container:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.3), transparent);
+}
+
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  overflow: -moz-scrollbars-none; /* Old Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb,
+.hide-scrollbar::-webkit-scrollbar-track,
+.hide-scrollbar::-webkit-scrollbar-button,
+.hide-scrollbar::-webkit-scrollbar-track-piece,
+.hide-scrollbar::-webkit-scrollbar-corner,
+.hide-scrollbar::-webkit-resizer {
+  display: none;
+  background: transparent;
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Add this at the top of the file */
+/* Hide scrollbars while keeping scroll functionality */
+html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
